@@ -8,7 +8,6 @@ MUP姿态跟踪项目是2019下半年做的一个项目。项目一开始是从S
 Main Idea
 * 本项目是基于MPU9250/MPU6050的姿态结算和显示，采用matlab和STM32交互实现。STM32主要负责通过蓝牙串口回传速度、加速度和陀螺仪数据（详细可以参考正点原子、野火的官方demo）。matlab通过串口接收STM32发送的姿态数据，同时实现Mahony姿态解算，椭圆/圆形/最值姿态初始校正、二维/三维姿态实时跟踪/仿真。（注意，整个项目的数据源依赖于串口实现，即使是采用软件仿真模式也需要模拟串口设备，可通过通过仿真/外接串口，并将发送和接收端子短接。）
 
-![image](https://user-images.githubusercontent.com/50388568/109765193-7731ed80-7c2f-11eb-9ec9-1ce0c6c68d67.png)
 ![image](https://user-images.githubusercontent.com/50388568/109766704-7e59fb00-7c31-11eb-8df1-7b630a705b8b.png)
 ![image](https://user-images.githubusercontent.com/50388568/109766085-ad23a180-7c30-11eb-903e-4574885ff85e.png)
 
