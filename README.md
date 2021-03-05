@@ -5,7 +5,8 @@ MPU9250/MPU6050, Mahony attitude calculation, ellipse/circle/maximum correction,
 ![image](https://user-images.githubusercontent.com/50388568/109763622-4cdf3080-7c2d-11eb-9e68-8231b53d3f2e.png)
 
 MUP姿态跟踪项目是2019下半年做的一个项目。项目一开始是从STM32单片上开始着手的，参考了不少飞控算法/姿态计算的开源。因此之前着手过几个SMPU6050的姿态应用项目，所以一开始还是很有信心的。后来的我才发现，经验和现实还是有点差距的。过往的项目应用场景对姿态的准确性的容错率较大，因此很少深入研究姿态结算的内容。但是这个项目对姿态数据的准确性要求较高，项目初期因为MPU的零漂/姿态校正等问题摸爬滚打了很久。
-Main Idea
+
+# Main Idea
 * 本项目是基于MPU9250/MPU6050的姿态结算和显示，采用matlab和STM32交互实现。STM32主要负责通过蓝牙串口回传速度、加速度和陀螺仪数据（详细可以参考正点原子、野火的官方demo）。matlab通过串口接收STM32发送的姿态数据，同时实现Mahony姿态解算，椭圆/圆形/最值姿态初始校正、二维/三维姿态实时跟踪/仿真。（注意，整个项目的数据源依赖于串口实现，即使是采用软件仿真模式也需要模拟串口设备，可通过通过仿真/外接串口，并将发送和接收端子短接。）
 
 ![image](https://user-images.githubusercontent.com/50388568/109766704-7e59fb00-7c31-11eb-8df1-7b630a705b8b.png)
